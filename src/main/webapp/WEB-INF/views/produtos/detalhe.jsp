@@ -482,7 +482,7 @@
 				</g>
 				<g>
 					<circle cy="14.681157" cx="13.148581" r="9" role="presentation" fill="#FFF"/>
-					<text text-decoration="none" text-anchor="middle" x="13.148581" y="19" class="sacola-contador">0</text>
+					<text text-decoration="none" text-anchor="middle" x="13.148581" y="19" class="sacola-contador">${carrinhoCompras.quantidade}</text>
 				</g>
 			 </svg>
 		</a>
@@ -578,9 +578,11 @@
 	<form action='<c:url value="/carrinho/add" />' method="post" class="adicionarAoCarrinho">
 
 	<ul class="adicionarAoCarrinho-listaOfertas">
-	
-	
-	
+
+		<input type="hidden" name="produtoId" value="${produto.id}" />
+
+    <c:forEach items="${produto.precos}" var="preco">
+
 		<li class="adicionarAoCarrinho-oferta" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
 			<label class="adicionarAoCarrinho-infosDaOferta" for="product-variant-1291092289">
 				<span class="adicionarAoCarrinho-tipoDaOferta"
@@ -590,7 +592,7 @@
 					 
 				>
 					<span class="adicionarAoCarrinho-tipoDaOferta-nome">
-						E-book
+						 ${preco.tipoPreco}
 					</span>
 					
 					<small class="adicionarAoCarrinho-tipoDaOferta-detalhe">
@@ -622,85 +624,10 @@
 				</button>
 			
 		</li>
-	
-	
-	
-		<!-- <li class="adicionarAoCarrinho-oferta" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
-			<label class="adicionarAoCarrinho-infosDaOferta" for="product-variant-1291146305">
-				<span class="adicionarAoCarrinho-tipoDaOferta"
-					 role="presentation"
-					 itemprop="category"
-					 
-					  itemscope itemtype="http://schema.org/Hardcover" 
-				>
-					<span class="adicionarAoCarrinho-tipoDaOferta-nome">
-						Impresso
-					</span>
-					
-				</span>
-				<p class="adicionarAoCarrinho-preco">
-					
-					
-					
-					
-						
-					
-					
-					<span class="adicionarAoCarrinho-preco-valor" itemprop="price">
-						R$ ${preco.valor}
-					</span>
-					
-					<a class="adicionarAoCarrinho-preco-frete" href="https://www.casadocodigo.com.br/pages/fretes" rel="nofollow">
-						+ frete
-					</a>
-					
-				</p>
-			</label>
-			
-				<button class="adicionarAoCarrinho-botaoComprar" type="submit" name="id" value="1291146305" title="Compre o Impresso">
-					Comprar
-				</button>
-			
-		</li>
-	
-	
-	
-		<li class="adicionarAoCarrinho-oferta" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
-			<label class="adicionarAoCarrinho-infosDaOferta" for="product-variant-1291166209">
-				<span class="adicionarAoCarrinho-tipoDaOferta"
-					 role="presentation"
-					 itemprop="category"
-					 
-					 
-				>
-					<span class="adicionarAoCarrinho-tipoDaOferta-nome">
-						E-book + Impresso
-					</span>
-					
-				</span>
-				<p class="adicionarAoCarrinho-preco">
-					
-					
 
-					
-					<span class="adicionarAoCarrinho-preco-valor" itemprop="price">
-						R$ ${preco.valor}
-					</span>
-					
-					<a class="adicionarAoCarrinho-preco-frete" href="https://www.casadocodigo.com.br/pages/fretes" rel="nofollow">
-						+ frete
-					</a>
-					
-				</p>
-			</label>
-			
-				<button class="adicionarAoCarrinho-botaoComprar" type="submit" name="id" value="1291166209" title="Compre o E-book + Impresso">
-					Comprar
-				</button>
-			
-		</li> -->
+	</c:forEach>
 	
-	
+
 	</ul>
 </form>
 

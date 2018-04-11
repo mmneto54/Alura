@@ -8,7 +8,6 @@ import br.casadocodigo.loja.models.TipoPreco;
 import br.casadocodigo.loja.validation.ProdutoValidation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
@@ -76,9 +75,7 @@ public class ProdutosController {
     public ModelAndView detalhe(@PathVariable("id") Integer id){
 
         ModelAndView modelAndView = new ModelAndView("/produtos/detalhe");
-
         Produto produto  = produtoDAO.find(id);
-
         modelAndView.addObject("produto", produto);
 
         return modelAndView;
