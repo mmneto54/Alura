@@ -10,6 +10,7 @@ import java.util.List;
 @Entity
 public class Produto {
 
+
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private int id ;
@@ -81,6 +82,22 @@ public class Produto {
         this.sumarioPath = sumarioPath;
     }
 
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Produto)) return false;
+
+        Produto produto = (Produto) o;
+
+        return getId() == produto.getId();
+    }
+
+    @Override
+    public int hashCode() {
+        return getId();
+    }
+
     @Override
     public String toString() {
         final StringBuffer sb = new StringBuffer("Produto{");
@@ -91,6 +108,7 @@ public class Produto {
         sb.append('}');
         return sb.toString();
     }
+
 
 }
 

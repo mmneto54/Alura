@@ -4,6 +4,7 @@ package br.casadocodigo.loja.conf;
 import br.casadocodigo.loja.controllers.HomeController;
 import br.casadocodigo.loja.dao.ProdutoDAO;
 import br.casadocodigo.loja.infra.FileSarver;
+import br.casadocodigo.loja.models.CarrinhoCompras;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -19,13 +20,15 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 
 @EnableWebMvc
-@ComponentScan(basePackageClasses = {HomeController.class, ProdutoDAO.class , FileSarver.class})
+@ComponentScan(basePackageClasses = {HomeController.class, ProdutoDAO.class , FileSarver.class , CarrinhoCompras.class})
+
 
 public class AppWebConfiguration {
 
     @Bean
     public InternalResourceViewResolver internalResourceViewResolver(){
         InternalResourceViewResolver resolver = new InternalResourceViewResolver();
+        resolver.setExposedContextBeanNames("carrinhoCompras");
         resolver.setPrefix("/WEB-INF/views/");
         resolver.setSuffix(".jsp");
         return resolver;
