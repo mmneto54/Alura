@@ -619,7 +619,7 @@
 				</p>
 			</label>
 			
-				<button class="adicionarAoCarrinho-botaoComprar" type="submit" name="id" value="1291092289" title="Compre o E-book">
+				<button class="adicionarAoCarrinho-botaoComprar" type="submit" name="tipo" value="${preco.tipoPreco}" title="Compre o E-book">
 					Comprar
 				</button>
 			
