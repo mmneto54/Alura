@@ -38,9 +38,6 @@ public class CarrinhoItem {
         return tipo;
     }
 
-    public void setTipo(TipoPreco tipo) {
-        this.tipo = tipo;
-    }
 
     @Override
     public String toString() {
@@ -49,5 +46,23 @@ public class CarrinhoItem {
         sb.append(", tipo=").append(tipo);
         sb.append('}');
         return sb.toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof CarrinhoItem)) return false;
+
+        CarrinhoItem that = (CarrinhoItem) o;
+
+        if (getProduto() != null ? !getProduto().equals(that.getProduto()) : that.getProduto() != null) return false;
+        return getTipo() == that.getTipo();
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getProduto() != null ? getProduto().hashCode() : 0;
+        result = 31 * result + (getTipo() != null ? getTipo().hashCode() : 0);
+        return result;
     }
 }
