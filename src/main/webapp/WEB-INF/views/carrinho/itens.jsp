@@ -533,7 +533,7 @@
 		<section class="infoSection container">
 	<h2 class="infoSection-titulo">Seu carrinho</h2>
 	
-	<form class="formularioDoCarrinho" action="/cart" method="post">
+
 	<table class="formularioDoCarrinho-tabela">
 		<thead class="formularioDoCarrinho-cabecalho">
 			<tr>
@@ -567,9 +567,9 @@
 				</td>
 				<td class="formularioDoCarrinho-item formularioDoCarrinho-item-precoTotal" title="Preço unitário: R$69,90">R$ ${carrinhoCompras.getTotal(item)}</td>
 				<td class="formularioDoCarrinho-item">
-					<a href="/cart/change?id=19467336775&quantity=0">
-						<img class="formularioDoCarrinho-item-remover-imagem"  src="//cdn.shopify.com/s/files/1/0155/7645/t/232/assets/trash.png?1961868959706152171" alt="X" title="Remover">
-					</a>
+					<form action="${s:mvcUrl('CCC#remover').arg(0, item.produto.id).arg(1,item.tipo).build() }"  method="post">
+						<input type="image"  src="//cdn.shopify.com/s/files/1/0155/7645/t/232/assets/trash.png?1961868959706152171" alt="Excluir" title="Excluir" />
+					</form>
 				</td>
 			</tr>
 	  </c:forEach>
@@ -577,7 +577,10 @@
 		<tfoot class="formularioDoCarrinho-rodape">
 			<tr>
 				<td class="formularioDoCarrinho-rodape-item formularioDoCarrinho-finalizar" colspan="3">
+
+					<form action="${s:mvcUrl('PC#finalizar').build()}" method="post">
 					<button class="formularioDoCarrinho-finalizar-botao" type="submit" name="checkout">Finalizar<span class="formularioDoCarrinho-finalizar-botao-texto" role="presentation"> compra</span></button>
+					</form>
 				</td>
 				<td class="formularioDoCarrinho-rodape-item">
 					<button class="formularioDoCarrinho-atualizar" type="submit" class="update-cart" name="update">Atualizar</button>
@@ -589,7 +592,7 @@
 			</tr>
 		</tfoot>
 	</table>
-</form>
+
 	
 </section>
 

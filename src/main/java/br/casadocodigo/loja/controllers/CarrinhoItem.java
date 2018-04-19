@@ -41,4 +41,13 @@ public class CarrinhoItem {
     public void setTipo(TipoPreco tipo) {
         this.tipo = tipo;
     }
+
+    @Override
+    public String toString() {
+        final StringBuffer sb = new StringBuffer("CarrinhoItem{");
+        sb.append("produto=").append(produto);
+        sb.append(", tipo=").append(tipo);
+        sb.append('}');
+        return sb.toString();
+    }
 }

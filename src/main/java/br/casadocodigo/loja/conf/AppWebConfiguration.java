@@ -2,6 +2,7 @@ package br.casadocodigo.loja.conf;
 
 
 import br.casadocodigo.loja.controllers.HomeController;
+import br.casadocodigo.loja.controllers.PagamentoController;
 import br.casadocodigo.loja.dao.ProdutoDAO;
 import br.casadocodigo.loja.infra.FileSarver;
 import br.casadocodigo.loja.models.CarrinhoCompras;
@@ -20,7 +21,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 
 @EnableWebMvc
-@ComponentScan(basePackageClasses = {HomeController.class, ProdutoDAO.class , FileSarver.class , CarrinhoCompras.class})
+@ComponentScan(basePackageClasses = {HomeController.class, ProdutoDAO.class , FileSarver.class , CarrinhoCompras.class })
 
 
 public class AppWebConfiguration {
