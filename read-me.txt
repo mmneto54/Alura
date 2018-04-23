@@ -1,0 +1,6 @@
+CRIAR BANCO DE DADOS NO MYSQL 
+CREATE DATA BASE casadocodigo; 
+user root
+senha 1234 
+
+ 
