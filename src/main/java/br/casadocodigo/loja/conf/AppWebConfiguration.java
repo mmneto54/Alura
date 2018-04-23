@@ -22,13 +22,13 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 
 @EnableWebMvc
-@ComponentScan(basePackageClasses = {HomeController.class, ProdutoDAO.class , FileSarver.class , CarrinhoCompras.class })
+@ComponentScan(basePackageClasses = {HomeController.class, ProdutoDAO.class, FileSarver.class, CarrinhoCompras.class})
 
 
 public class AppWebConfiguration {
 
     @Bean
-    public InternalResourceViewResolver internalResourceViewResolver(){
+    public InternalResourceViewResolver internalResourceViewResolver() {
         InternalResourceViewResolver resolver = new InternalResourceViewResolver();
         resolver.setExposedContextBeanNames("carrinhoCompras");
         resolver.setPrefix("/WEB-INF/views/");
@@ -37,8 +37,8 @@ public class AppWebConfiguration {
     }
 
     @Bean
-    public MessageSource messageSource(){
-        ReloadableResourceBundleMessageSource  messageSource   = new  ReloadableResourceBundleMessageSource();
+    public MessageSource messageSource() {
+        ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
         messageSource.setBasename("/WEB-INF/messages");
         messageSource.setDefaultEncoding("UTF-8");
         messageSource.setCacheSeconds(1);
@@ -47,7 +47,7 @@ public class AppWebConfiguration {
     }
 
     @Bean
-    public FormattingConversionService mvcConversionService(){
+    public FormattingConversionService mvcConversionService() {
         DefaultFormattingConversionService conversionService = new DefaultFormattingConversionService();
         DateFormatterRegistrar formatterRegistrar = new DateFormatterRegistrar();
         formatterRegistrar.setFormatter(new DateFormatter("dd/MM/yyyy"));
@@ -58,15 +58,14 @@ public class AppWebConfiguration {
 
 
     @Bean
-    public MultipartResolver multipartResolver(){
+    public MultipartResolver multipartResolver() {
         return new StandardServletMultipartResolver();
     }
 
     @Bean
-    public RestTemplate restTemplate(){
+    public RestTemplate restTemplate() {
         return new RestTemplate();
     }
-
 
 
 }
