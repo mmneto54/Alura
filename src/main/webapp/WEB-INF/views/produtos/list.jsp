@@ -22,7 +22,9 @@
 <form action="/produtos" method="GET">
     <h1>Lista de Produtos</h1>
     <table>
-        <tr><td colspan="3" align="center">${sucesso}</td></tr>
+        <tr><td colspan="3" align="center">
+            ${sucesso} ${falha}
+        </td></tr>
         <tr>
 
             <td>Título</td>

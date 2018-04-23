@@ -4,4 +4,5 @@ CREATE DATA BASE casadocodigo;
 user root
 senha 1234 
 
- 
+ferramenta para testes de performace.
+http://jmeter.apache.org/.  
